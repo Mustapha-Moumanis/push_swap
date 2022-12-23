@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 03:08:51 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/22 03:09:09 by mmoumani         ###   ########.fr       */
+/*   Updated: 2022/12/22 22:40:16 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ int	ft_atoi(const char *str)
 	{
 		r *= 10;
 		r += (str[i] - '0');
-		if ((r > 9223372036854775807) && (sign == 1))
+		if ((r > INT_MAX) && (sign == 1))
 			return (-1);
-		if ((r > 9223372036854775807) && (sign == -1))
+		if ((r > INT_MAX) && (sign == -1))
 			return (0);
 		i++;
 	}
