@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_address.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 19:24:38 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/22 02:52:49 by mmoumani         ###   ########.fr       */
+/*   Created: 2022/10/31 15:47:19 by mmoumani          #+#    #+#             */
+/*   Updated: 2022/12/24 06:21:31 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-int	ft_address(size_t arg, size_t i)
+int	ft_lstsize(t_list *lst)
 {
-	if (arg >= 16)
+	int	i;
+
+	if (!lst)
+		return (0);
+	i = 1;
+	while (lst->next)
 	{
-		i += ft_address(arg / 16, i);
-		ft_address(arg % 16, i);
+		lst = lst->next;
+		i++;
 	}
-	else if (arg < 10)
-		ft_putchar((arg % 16) + 48);
-	else if (arg >= 10)
-		ft_putchar((arg % 16) + 87);
 	return (i);
 }

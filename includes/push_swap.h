@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 01:47:53 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/22 23:00:56 by mmoumani         ###   ########.fr       */
+/*   Updated: 2022/12/24 07:02:55 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,33 +21,35 @@
 # include <limits.h>
 
 
-
-int		ft_printf(const char *str, ...);
-int		ft_putchar(char c);
-int		ft_putstr(char *s);
-int		ft_putnbr(int n, int i);
-int		ft_putunbr(unsigned int n, int i);
-int		ft_hexa(unsigned int arg, size_t i, char c);
-int		ft_address(size_t arg, size_t i);
-
 size_t	ft_strlen(const char *str);
-int	ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 char	**ft_split(char const *s, char c);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
-int	ft_isdigit(int c);
+int		ft_isdigit(int c);
 
 
 // linked list :
 
 typedef struct s_list
 {
-	int             content;
+	int				content;
 	struct s_list	*next;
 }	t_list;
 
 t_list	*ft_lstnew(int content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
+int		ft_lstsize(t_list *lst);
+// void	ft_lstdelone(t_list *lst, void (*del)(void *));
+
+
+
+// Rules
+void	sa(t_list *stack_a);
+void	sb(t_list *stack_b);
+void	ss(t_list *stack_a, t_list *stack_b);
+
 
 #endif

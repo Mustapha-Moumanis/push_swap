@@ -6,11 +6,11 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 23:52:22 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/22 03:26:36 by mmoumani         ###   ########.fr       */
+/*   Updated: 2022/12/23 15:41:02 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static int	ft_nword(char const *s, char c)
 {

@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 07:26:28 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/22 23:02:00 by mmoumani         ###   ########.fr       */
+/*   Created: 2022/10/05 20:18:57 by mmoumani          #+#    #+#             */
+/*   Updated: 2022/12/23 15:41:02 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-t_list	*ft_lstnew(int content)
+size_t	ft_strlen(const char *str)
 {
-	t_list	*node;
+	size_t	i;
 
-	node = malloc(sizeof(t_list));
-	if (!node)
-		return (NULL);
-	node->content = content;
-	node->next = NULL;
-	return (node);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

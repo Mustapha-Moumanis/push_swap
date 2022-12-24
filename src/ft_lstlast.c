@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 14:58:37 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/22 03:28:25 by mmoumani         ###   ########.fr       */
+/*   Created: 2022/10/31 15:47:15 by mmoumani          #+#    #+#             */
+/*   Updated: 2022/12/23 15:41:02 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-void	ft_bzero(void *s, size_t n)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
-	char	*b;
-
-	i = 0;
-	b = (char *)s;
-	if (n != 0)
-	{
-		while (i < n)
-		{
-			b[i] = '\0';
-			i++;
-		}
-	}
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

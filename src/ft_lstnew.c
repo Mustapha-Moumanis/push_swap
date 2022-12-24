@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 21:11:56 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/22 02:52:49 by mmoumani         ###   ########.fr       */
+/*   Created: 2022/10/28 07:26:28 by mmoumani          #+#    #+#             */
+/*   Updated: 2022/12/23 15:41:02 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-int	ft_putnbr(int n, int i)
+t_list	*ft_lstnew(int content)
 {
-	long	temp;
+	t_list	*node;
 
-	if (n < 0)
-	{
-		i += ft_putchar('-');
-		temp = (-(long) n);
-	}
-	else
-		temp = n;
-	if (temp < 10)
-		ft_putchar(temp + '0');
-	else
-	{
-		i += ft_putnbr(temp / 10, 1);
-		ft_putchar(temp % 10 + '0');
-	}
-	return (i);
+	node = malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }

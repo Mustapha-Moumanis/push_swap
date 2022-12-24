@@ -6,11 +6,11 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 03:08:51 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/22 22:40:16 by mmoumani         ###   ########.fr       */
+/*   Updated: 2022/12/23 22:06:02 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static int	ft_white_space(const char *str, int i)
 {
@@ -19,11 +19,11 @@ static int	ft_white_space(const char *str, int i)
 	return (i);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int				i;
-	int				sign;
-	unsigned long	r;
+	int		i;
+	int		sign;
+	long	r;
 
 	i = 0;
 	sign = 1;
@@ -39,10 +39,6 @@ int	ft_atoi(const char *str)
 	{
 		r *= 10;
 		r += (str[i] - '0');
-		if ((r > INT_MAX) && (sign == 1))
-			return (-1);
-		if ((r > INT_MAX) && (sign == -1))
-			return (0);
 		i++;
 	}
 	return (r * sign);

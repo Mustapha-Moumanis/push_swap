@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunbr.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 21:11:56 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/22 02:52:49 by mmoumani         ###   ########.fr       */
+/*   Created: 2022/10/09 14:58:37 by mmoumani          #+#    #+#             */
+/*   Updated: 2022/12/23 15:41:02 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-int	ft_putunbr(unsigned int n, int i)
+void	ft_bzero(void *s, size_t n)
 {
-	long	temp;
+	size_t	i;
+	char	*b;
 
-	if (n < 0)
+	i = 0;
+	b = (char *)s;
+	if (n != 0)
 	{
-		ft_putchar('-');
-		temp = (-(long) n);
+		while (i < n)
+		{
+			b[i] = '\0';
+			i++;
+		}
 	}
-	else
-		temp = n;
-	if (temp < 10)
-		ft_putchar(temp + '0');
-	else
-	{
-		i += ft_putnbr(temp / 10, i);
-		ft_putchar(temp % 10 + '0');
-	}
-	return (i);
 }
