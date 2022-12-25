@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 23:51:35 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/24 07:21:51 by mmoumani         ###   ########.fr       */
+/*   Updated: 2022/12/25 04:56:14 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,23 @@ t_list	*check_args(int argc, char **argv, int i)
 	while (i < argc)
 	{
 		s1 = ft_split(argv[i], ' ');
-		if (!s1[0])
-			return (write(2, "Error", 5), head);
+		if (!s1)
+			return (write(2, "Error\n", 6), head);
+		else if (!s1[0])
+			return (write(2, "Error\n", 6), free(s1[0]), head);
 		j = 0;
 		while (s1[j])
 		{
 			if (!all_isdigit(s1[j]))
-				return (write(2, "Error", 5), head);
-			if (!exist(head, ft_atoi(s1[j])))
+				return (write(2, "Error\n", 6), free(s1[j]), head);
+			else if (!exist(head, ft_atoi(s1[j])))
 				ft_lstadd_back(&head, ft_lstnew(ft_atoi(s1[j])));
 			else
-				return (write(2, "Error", 5), head);
+				return (write(2, "Error\n", 6), free(s1[j]), head);
+			free(s1[j]);
 			j++;
 		}
+		free(s1);
 		i++;
 	}
 	return (head);
@@ -74,21 +78,12 @@ t_list	*check_args(int argc, char **argv, int i)
 
 int	main(int argc, char **argv)
 {
-	t_list	*a;
-	t_list	*b = NULL;
+	t_list	*a = NULL;
+	//t_list	*b = NULL;
 
 	a = check_args(argc, argv, 1);
-	// b = check_args(argc, argv + 2, 1);
-	// if (a)
-	// {
-	// 	while (a)
-	// 	{
-	// 		printf("$%d$\n", a->content);
-	// 		a = a->next;
-	// 	}
-	// }
-	pb(&a, &b);
-	// ss(a, b);
+	//b = check_args(argc, argv, 1);
+	rrb(&a);
 	// if (a)
 	// {
 	// 	while (a)
@@ -97,14 +92,17 @@ int	main(int argc, char **argv)
 	// 		a = a->next;
 	// 	}
 	// }
-	if (b)
-	{
-		while (b)
-		{
-			printf("b => $%d$\n", b->content);
-			b = b->next;
-		}
-	}
+	// if (b)
+	// {
+	// 	while (b)
+	// 	{
+	// 		printf("b => $%d$\n", b->content);
+	// 		b = b->next;
+	// 	}
+	// }
+	// freeList(a);
+	// freeList(b);
+	while (1);
 	return (0);
 }
 

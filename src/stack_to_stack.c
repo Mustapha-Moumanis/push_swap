@@ -6,29 +6,33 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 06:43:41 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/24 07:22:09 by mmoumani         ###   ########.fr       */
+/*   Updated: 2022/12/25 03:40:57 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// void	pb(t_list *stack_a, t_list *stack_b)
-// {
-// 	t_list	*tmp;
+static	void	stack_to_stack(t_list **stack_1, t_list **stack_2)
+{
+	(*stack_2) = (*stack_1);
+	(*stack_1) = (*stack_1)->next;
+	(*stack_2)->next = NULL;
+}
 
-// 	ft_lstadd_front(stack_b, ft_lstnew(stack_a->content));
-// 	tmp = stack_a->next;
-// 	free(stack_a);
-// 	stack_a = tmp;
-// }
-
+void	pa(t_list **stack_a, t_list **stack_b)
+{
+	if (*stack_b)
+	{
+		stack_to_stack(stack_b, stack_a);
+		write(1, "pa\n", 3);
+	}
+}
 
 void	pb(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*tmp;
-
-	ft_lstadd_front(stack_b, ft_lstnew((*stack_a)->content));
-	tmp = (*stack_a)->next;
-	free((*stack_a));
-	(*stack_a) = tmp;
+	if (*stack_a)
+	{
+		stack_to_stack(stack_a, stack_b);
+		write(1, "pb\n", 3);
+	}
 }

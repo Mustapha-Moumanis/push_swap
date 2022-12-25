@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 01:47:53 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/24 07:02:55 by mmoumani         ###   ########.fr       */
+/*   Updated: 2022/12/25 03:06:21 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,20 @@ t_list	*ft_lstlast(t_list *lst);
 int		ft_lstsize(t_list *lst);
 // void	ft_lstdelone(t_list *lst, void (*del)(void *));
 
-
-
 // Rules
 void	sa(t_list *stack_a);
 void	sb(t_list *stack_b);
 void	ss(t_list *stack_a, t_list *stack_b);
+void	pa(t_list **stack_a, t_list **stack_b);
+void	pb(t_list **stack_a, t_list **stack_b);
+void	ra(t_list **stack_a);
+void	rb(t_list **stack_b);
+void	rr(t_list **stack_a, t_list **stack_b);
+void	rra(t_list **stack_a);
+void	rrb(t_list **stack_b);
+void	rrr(t_list **stack_a, t_list **stack_b);
+
+
 
 
 #endif
