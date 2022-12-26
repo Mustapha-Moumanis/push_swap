@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 01:47:53 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/25 03:06:21 by mmoumani         ###   ########.fr       */
+/*   Updated: 2022/12/26 03:16:50 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdarg.h>
 # include <limits.h>
 
+// libft function :
 
 size_t	ft_strlen(const char *str);
 long	ft_atoi(const char *str);
@@ -27,7 +28,6 @@ char	**ft_split(char const *s, char c);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
 int		ft_isdigit(int c);
-
 
 // linked list :
 
@@ -42,9 +42,13 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
 int		ft_lstsize(t_list *lst);
-// void	ft_lstdelone(t_list *lst, void (*del)(void *));
 
-// Rules
+// checked args and create stack
+
+t_list	*check_all(int argc, char **argv, int i);
+
+// Rules :
+
 void	sa(t_list *stack_a);
 void	sb(t_list *stack_b);
 void	ss(t_list *stack_a, t_list *stack_b);
@@ -56,8 +60,5 @@ void	rr(t_list **stack_a, t_list **stack_b);
 void	rra(t_list **stack_a);
 void	rrb(t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
-
-
-
 
 #endif

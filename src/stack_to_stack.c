@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 06:43:41 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/25 03:40:57 by mmoumani         ###   ########.fr       */
+/*   Updated: 2022/12/26 03:17:51 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 static	void	stack_to_stack(t_list **stack_1, t_list **stack_2)
 {
-	(*stack_2) = (*stack_1);
+	t_list	*tmp;
+
+	tmp = (*stack_1);
 	(*stack_1) = (*stack_1)->next;
-	(*stack_2)->next = NULL;
+	tmp->next = (*stack_2);
+	(*stack_2) = tmp;
 }
 
 void	pa(t_list **stack_a, t_list **stack_b)
