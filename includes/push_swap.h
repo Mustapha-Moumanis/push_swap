@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 01:47:53 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/26 03:16:50 by mmoumani         ###   ########.fr       */
+/*   Updated: 2022/12/27 07:21:52 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,15 @@ void	rr(t_list **stack_a, t_list **stack_b);
 void	rra(t_list **stack_a);
 void	rrb(t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
+
+// sort :
+
+void	two_sorted(t_list	**stack);
+void	tree_sorted(t_list	**stack);
+void	five_sorted(t_list	**a, t_list **b, int len, int min);
+void	less_five_sort(t_list **stack_a, t_list **stack_b);
+int		maximum(t_list	*stack);
+int		minimum(t_list	*stack);
+int		is_sorted(t_list *stack);
 
 #endif

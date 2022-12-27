@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 00:02:19 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/25 04:31:34 by mmoumani         ###   ########.fr       */
+/*   Updated: 2022/12/26 19:15:58 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	stacks_reverse(t_list **stack)
 {
 	t_list	*tmp;
-	
+
 	tmp = ft_lstlast(*stack);
 	tmp->next = (*stack);
 	*stack = (*stack)->next;
