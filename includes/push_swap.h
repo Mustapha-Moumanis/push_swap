@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 01:47:53 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/27 07:21:52 by mmoumani         ###   ########.fr       */
+/*   Updated: 2022/12/28 12:06:21 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ void	less_five_sort(t_list **stack_a, t_list **stack_b);
 int		maximum(t_list	*stack);
 int		minimum(t_list	*stack);
 int		is_sorted(t_list *stack);
+int		*to_arr(t_list	*stack, int len);
 
 #endif

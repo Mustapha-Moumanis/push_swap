@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 03:18:30 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/26 03:23:30 by mmoumani         ###   ########.fr       */
+/*   Updated: 2022/12/28 14:22:46 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static	t_list	*check_args(char **s1, t_list **head)
 		if (!all_isdigit(s1[i]))
 			return (write(2, "Error\n", 6), free(s1[i]), (*head));
 		else if (!exist((*head), ft_atoi(s1[i])))
-			ft_lstadd_back(&(*head), ft_lstnew(ft_atoi(s1[i])));
+			ft_lstadd_back(head, ft_lstnew(ft_atoi(s1[i])));
 		else
 			return (write(2, "Error\n", 6), free(s1[i]), (*head));
 		free(s1[i]);
