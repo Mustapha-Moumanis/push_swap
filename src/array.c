@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 11:30:31 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/28 12:47:55 by mmoumani         ###   ########.fr       */
+/*   Updated: 2022/12/29 18:29:55 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,21 @@ void	sort_array(int *arr, int len)
 	int	min;
 
 	i = 0;
-	while (i < len)
+	if (arr)
 	{
-		min = i;
-		j = i + 1;
-		while (j < len)
+		while (i < len)
 		{
-			if (arr[j] < arr[min])
-				min = j;
-			j++;
+			min = i;
+			j = i + 1;
+			while (j < len)
+			{
+				if (arr[j] < arr[min])
+					min = j;
+				j++;
+			}
+			ft_swap(&arr[i], &arr[min]);
+			i++;
 		}
-		ft_swap(&arr[i], &arr[min]);
-		i++;
 	}
 }
 
@@ -50,6 +53,8 @@ int	*to_arr(t_list	*stack, int len)
 
 	i = 0;
 	arr = malloc (len * sizeof(int));
+	if (!arr)
+		return (NULL);
 	while (i < len)
 	{
 		arr[i] = stack->content;
