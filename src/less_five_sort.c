@@ -41,9 +41,6 @@ void	tree_sorted(t_list	**stack)
 
 void	five_sorted(t_list	**a, t_list **b, int len, int min)
 {
-	int	max;
-
-	max = maximum(*a);
 	while (!is_sorted(*a))
 	{
 		if (len == 3)

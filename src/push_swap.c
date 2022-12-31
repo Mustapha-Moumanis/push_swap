@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 23:51:35 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/29 19:00:35 by mmoumani         ###   ########.fr       */
+/*   Updated: 2022/12/31 04:26:31 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,21 @@
 // 		i++;
 // 	}
 // }
+
+int max_index_place(t_list	*stack, int max)
+{
+	int i;
+
+	i = 0;
+	while (stack)
+	{
+		if (stack->content == max)
+			return (i);
+		stack = stack->next;
+		i++;
+	}
+	return (-1);
+	}
 
 int	in_range(int content, int *arr, int start, int end)
 {
@@ -48,7 +63,7 @@ void	sort_range(t_list **stack_a, t_list **stack_b, int *arr, int len)
 	int		end;
 
 	i = 0;
-	mid = len/2 - 1;
+	mid = len/2;
  
 	if (len <= 8)
 		offset = 1;
@@ -56,6 +71,7 @@ void	sort_range(t_list **stack_a, t_list **stack_b, int *arr, int len)
 		offset = len / 8;
 	else
 		offset = len / 18;
+	
 	start = mid - offset;
 	end = mid + offset;
 	while (*stack_a)
@@ -64,19 +80,16 @@ void	sort_range(t_list **stack_a, t_list **stack_b, int *arr, int len)
 		if (i >= 0)
 		{
 			pb(stack_a,stack_b);
-			if ((*stack_b)->content < mid)
+			if ((*stack_b)->content < arr[mid])
 				rb(stack_b);
 			if (*stack_b && ((*stack_b)->next) && 
 			((*stack_b)->content < (*stack_b)->next->content))
 				sb(*stack_b);
-			len--;
-		}
-		else if (i <= len / 2)
-		{
-			ra(stack_a);
+			if (ft_lstlast(*stack_b)->content > arr[mid])
+				rrb(stack_b);
 		}
 		else
-			rra(stack_a);
+			ra(stack_a);
 		if (ft_lstsize(*stack_b) == end - start + 1)
 		{
 			start -= offset;
@@ -84,46 +97,29 @@ void	sort_range(t_list **stack_a, t_list **stack_b, int *arr, int len)
 				start = 0;
 			end += offset;
 			if (end > len)
-				start = 0;
+				end = len;
 		}
 	}
-
-
-	
-	// while (*stack_b)
-	// {
-	// 	if ((*stack_b)->content == arr[len - i])
-	// 	{
-	// 		pa(stack_a, stack_b);
-	// 		i++;
-	// 	}
-	// 	else if ((*stack_b)->next->content == arr[len - i])
-	// 	{
-	// 		sb(*stack_b);
-	// 		pa(stack_a, stack_a);
-	// 		i++;
-	// 	}
-	// 	else
-	// 	{
-	// 		pa(stack_a, stack_b);
-	// 		ra(stack_b);
-	// 		pa(stack_a, stack_b);
-	// 		rra(stack_a);
-	// 		i += 2;
-	// 	}
-	// 	// printf("last elemnt in arr = %d\n", arr[len - i]);
-	// }
-	
-	// if (!is_sorted(*stack_a) )
-	// 	sort_range(stack_a, stack_b, arr, len);
-	
-	
-	// else if (ft_lstsize(*stack_a) == 3)
-	// {
-	// 	tree_sorted(stack_a);
-	// 	while (stack_b)
-	// 		pa(stack_a, stack_b);
-	// }
+	i = ft_lstsize(*stack_b) - 1;
+	while (*stack_b)
+	{
+		len = ft_lstsize(*stack_b);
+		if ((*stack_b)->next && (*stack_b)->next->content == arr[i])
+			sb(*stack_b);
+		else if (ft_lstlast(*stack_b)->content == arr[i])
+			rrb(stack_b);
+		else
+		{
+			if (max_index_place(*stack_b, arr[i]) >= len / 2)
+				while ((*stack_b)->content != arr[i])
+					rrb(stack_b);
+			else
+				while ((*stack_b)->content != arr[i])
+					rb(stack_b);
+		}
+		pa(stack_a, stack_b);
+		i--;
+	}
 }
 
 void	larg_sort(t_list **stack_a, t_list **stack_b, int len)
@@ -174,5 +170,3 @@ int	main(int argc, char **argv)
 	// while (1);
 	return (0);
 }
-/// 4 0 1 5 6 2 3 9 8 7 /// 0 1 2 3 4 5 6 7 8 9
-/// 3 ----- 7 >>>> (i >= 0) >>>>>> index < size / 2 ra else rra (i == -1) >>> upgrade start && end

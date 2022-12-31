@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 01:47:53 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/28 12:06:21 by mmoumani         ###   ########.fr       */
+/*   Updated: 2022/12/30 20:00:29 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <limits.h>
+# include <stdint.h>
 
 // libft function :
 
@@ -46,6 +47,7 @@ int		ft_lstsize(t_list *lst);
 // checked args and create stack
 
 t_list	*check_all(int argc, char **argv, int i);
+int		exist(t_list *lst, long nb);
 
 // Rules :
 

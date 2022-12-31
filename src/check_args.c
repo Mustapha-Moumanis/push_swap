@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 03:18:30 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/28 14:22:46 by mmoumani         ###   ########.fr       */
+/*   Updated: 2022/12/30 20:00:09 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static	int	all_isdigit(char *str)
 	return (1);
 }
 
-static	int	exist(t_list *lst, long nb)
+int	exist(t_list *lst, long nb)
 {
 	if (nb > 2147483647 || nb < -2147483648)
 		return (1);
