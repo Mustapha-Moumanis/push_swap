@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 06:33:10 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/27 07:06:32 by mmoumani         ###   ########.fr       */
+/*   Updated: 2023/01/03 23:46:46 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,33 @@ int	is_sorted(t_list *stack)
 		stack = stack->next;
 	}
 	return (1);
+}
+
+int	max_index_place(t_list	*stack, int max)
+{
+	int	i;
+
+	i = 0;
+	while (stack)
+	{
+		if (stack->content == max)
+			return (i);
+		stack = stack->next;
+		i++;
+	}
+	return (-1);
+}
+
+int	in_range(int content, int *arr, int start, int end)
+{
+	int	i;
+
+	i = 0;
+	while (i <= end - start)
+	{
+		if (content == arr[start + i])
+			return (i);
+		i++;
+	}
+	return (-1);
 }

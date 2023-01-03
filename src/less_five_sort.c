@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 06:29:59 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/27 07:29:03 by mmoumani         ###   ########.fr       */
+/*   Updated: 2023/01/04 00:01:58 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	two_sorted(t_list	**stack)
 
 	min = minimum(*stack);
 	if (min != (*stack)->content)
-		sa(*stack);
+		sa(*stack, 1);
 }
 
 void	tree_sorted(t_list	**stack)
@@ -31,11 +31,11 @@ void	tree_sorted(t_list	**stack)
 	while (min != (*stack)->content || max != (*stack)->next->next->content)
 	{
 		if (min == (*stack)->next->next->content)
-			rra(stack);
+			rra(stack, 1);
 		else if (max == (*stack)->content)
-			ra(stack);
+			ra(stack, 1);
 		else
-			sa(*stack);
+			sa(*stack, 1);
 	}
 }
 
@@ -47,21 +47,21 @@ void	five_sorted(t_list	**a, t_list **b, int len, int min)
 		{
 			tree_sorted(a);
 			while (*b)
-				pa(a, b);
+				pa(a, b, 1);
 		}
 		else if ((*a)->content == min)
 		{
-			pb(a, b);
+			pb(a, b, 1);
 			min = minimum(*a);
 			len--;
 		}
 		else if (ft_lstlast((*a))->content == min)
-			rra(a);
+			rra(a, 1);
 		else
-			ra(a);
+			ra(a, 1);
 	}
 	if (len == 4)
-		pa(a, b);
+		pa(a, b, 1);
 }
 
 void	less_five_sort(t_list **stack_a, t_list **stack_b)

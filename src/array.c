@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 11:30:31 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/29 18:29:55 by mmoumani         ###   ########.fr       */
+/*   Updated: 2023/01/03 23:45:22 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_swap(int	*a, int *b)
 
 void	sort_array(int *arr, int len)
 {
-	int i;
+	int	i;
 	int	j;
 	int	min;
 

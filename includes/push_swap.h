@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 01:47:53 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/30 20:00:29 by mmoumani         ###   ########.fr       */
+/*   Updated: 2023/01/03 23:55:37 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,17 @@ void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
 int		ft_isdigit(int c);
 
+typedef struct range_data
+{
+	int		len;
+	int		max;
+	int		mid;
+	int		offset;
+	int		start;
+	int		end;
+	int		down;
+}		t_data;
+
 // linked list :
 
 typedef struct s_list
@@ -39,7 +50,6 @@ typedef struct s_list
 }	t_list;
 
 t_list	*ft_lstnew(int content);
-void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
 int		ft_lstsize(t_list *lst);
@@ -48,20 +58,21 @@ int		ft_lstsize(t_list *lst);
 
 t_list	*check_all(int argc, char **argv, int i);
 int		exist(t_list *lst, long nb);
+void	ft_error(char *c);
 
 // Rules :
 
-void	sa(t_list *stack_a);
-void	sb(t_list *stack_b);
-void	ss(t_list *stack_a, t_list *stack_b);
-void	pa(t_list **stack_a, t_list **stack_b);
-void	pb(t_list **stack_a, t_list **stack_b);
-void	ra(t_list **stack_a);
-void	rb(t_list **stack_b);
-void	rr(t_list **stack_a, t_list **stack_b);
-void	rra(t_list **stack_a);
-void	rrb(t_list **stack_b);
-void	rrr(t_list **stack_a, t_list **stack_b);
+void	sa(t_list *stack_a, int print);
+void	sb(t_list *stack_b, int print);
+void	ss(t_list *stack_a, t_list *stack_b, int print);
+void	pa(t_list **stack_a, t_list **stack_b, int print);
+void	pb(t_list **stack_a, t_list **stack_b, int print);
+void	ra(t_list **stack_a, int print);
+void	rb(t_list **stack_b, int print);
+void	rr(t_list **stack_a, t_list **stack_b, int print);
+void	rra(t_list **stack_a, int print);
+void	rrb(t_list **stack_b, int print);
+void	rrr(t_list **stack_a, t_list **stack_b, int print);
 
 // sort :
 
@@ -73,5 +84,8 @@ int		maximum(t_list	*stack);
 int		minimum(t_list	*stack);
 int		is_sorted(t_list *stack);
 int		*to_arr(t_list	*stack, int len);
+int		max_index_place(t_list	*stack, int max);
+int		in_range(int content, int *arr, int start, int end);
+void	larg_sort(t_list **stack_a, t_list **stack_b, int len);
 
 #endif

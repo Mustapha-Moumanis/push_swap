@@ -6,11 +6,17 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 03:18:30 by mmoumani          #+#    #+#             */
-/*   Updated: 2022/12/30 20:00:09 by mmoumani         ###   ########.fr       */
+/*   Updated: 2023/01/03 23:41:36 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	ft_error(char *c)
+{
+	write(2, c, 6);
+	exit(1);
+}
 
 static	int	all_isdigit(char *str)
 {
@@ -52,11 +58,11 @@ static	t_list	*check_args(char **s1, t_list **head)
 	while (s1[i])
 	{
 		if (!all_isdigit(s1[i]))
-			return (write(2, "Error\n", 6), free(s1[i]), (*head));
+			return (ft_error("Error\n"), free(s1[i]), (*head));
 		else if (!exist((*head), ft_atoi(s1[i])))
 			ft_lstadd_back(head, ft_lstnew(ft_atoi(s1[i])));
 		else
-			return (write(2, "Error\n", 6), free(s1[i]), (*head));
+			return (ft_error("Error\n"), free(s1[i]), (*head));
 		free(s1[i]);
 		i++;
 	}
@@ -73,9 +79,9 @@ t_list	*check_all(int argc, char **argv, int i)
 	{
 		s1 = ft_split(argv[i], ' ');
 		if (!s1)
-			return (write(2, "Error\n", 6), head);
+			return (ft_error("Error\n"), head);
 		else if (!s1[0])
-			return (write(2, "Error\n", 6), free(s1[0]), head);
+			return (ft_error("Error\n"), free(s1[0]), head);
 		check_args(s1, &head);
 		free(s1);
 		i++;
