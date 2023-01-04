@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 23:51:35 by mmoumani          #+#    #+#             */
-/*   Updated: 2023/01/04 22:58:38 by mmoumani         ###   ########.fr       */
+/*   Created: 2022/10/10 15:37:59 by mmoumani          #+#    #+#             */
+/*   Updated: 2023/01/04 22:19:36 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	t_list	*a;
-	t_list	*b;
-	int		len;
+	unsigned char		*str1;
+	unsigned char		*str2;
+	size_t				i;
 
-	a = check_all(argc, argv, 1);
-	b = NULL;
-	if (is_sorted(a))
-		exit(0);
-	len = ft_lstsize(a);
-	if (len <= 5)
-		less_five_sort(&a, &b);
-	else
-		larg_sort(&a, &b, ft_lstsize(a));
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	i = 0;
+	while (i < n)
+	{
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
+	}
 	return (0);
 }

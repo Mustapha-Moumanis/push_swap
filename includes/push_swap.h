@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 01:47:53 by mmoumani          #+#    #+#             */
-/*   Updated: 2023/01/03 23:55:37 by mmoumani         ###   ########.fr       */
+/*   Updated: 2023/01/04 22:19:59 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdarg.h>
 # include <limits.h>
 # include <stdint.h>
+# include <fcntl.h>
 
 // libft function :
 
@@ -87,5 +88,20 @@ int		*to_arr(t_list	*stack, int len);
 int		max_index_place(t_list	*stack, int max);
 int		in_range(int content, int *arr, int start, int end);
 void	larg_sort(t_list **stack_a, t_list **stack_b, int len);
+
+//  Bonus :
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+char	*get_next_line(int fd);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_first_str(const char *buf);
+char	*ft_reserve(char *re, char *line);
+char	*ft_strdup(const char *s1);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
+
 
 #endif
