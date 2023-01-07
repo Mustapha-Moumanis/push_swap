@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 01:47:53 by mmoumani          #+#    #+#             */
-/*   Updated: 2023/01/04 22:19:59 by mmoumani         ###   ########.fr       */
+/*   Updated: 2023/01/06 00:16:18 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int		ft_lstsize(t_list *lst);
 
 t_list	*check_all(int argc, char **argv, int i);
 int		exist(t_list *lst, long nb);
-void	ft_error(char *c);
+void	ft_error(void);
 
 // Rules :
 
@@ -92,7 +92,7 @@ void	larg_sort(t_list **stack_a, t_list **stack_b, int len);
 //  Bonus :
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 3
 # endif
 
 char	*get_next_line(int fd);
@@ -102,6 +102,5 @@ char	*ft_first_str(const char *buf);
 char	*ft_reserve(char *re, char *line);
 char	*ft_strdup(const char *s1);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
-
 
 #endif

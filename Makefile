@@ -15,7 +15,6 @@ B_FILES = bonus.c ft_strlen.c get_next_line.c get_next_line_utils.c ft_memcmp.c\
 
 B_FILES := $(addprefix src/, $(B_FILES))
 
-
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)

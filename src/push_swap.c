@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 23:51:35 by mmoumani          #+#    #+#             */
-/*   Updated: 2023/01/04 22:58:38 by mmoumani         ###   ########.fr       */
+/*   Updated: 2023/01/06 19:33:39 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	main(int argc, char **argv)
 	t_list	*b;
 	int		len;
 
+	if (argc <= 1)
+		return (0);
 	a = check_all(argc, argv, 1);
 	b = NULL;
 	if (is_sorted(a))

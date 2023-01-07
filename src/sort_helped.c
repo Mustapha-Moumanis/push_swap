@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 06:33:10 by mmoumani          #+#    #+#             */
-/*   Updated: 2023/01/03 23:46:46 by mmoumani         ###   ########.fr       */
+/*   Updated: 2023/01/05 22:53:20 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	minimum(t_list	*stack)
 
 int	is_sorted(t_list *stack)
 {
-	while (stack->next)
+	while (stack && stack->next)
 	{
 		if (stack->content > stack->next->content)
 			return (0);
